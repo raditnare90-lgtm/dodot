@@ -1,0 +1,108 @@
+:root {
+    --deep-blue: #0077b6;
+    --ocean-blue: #00b4d8;
+    --sand: #ffddd2;
+    --coral: #e5989b;
+    --white: #ffffff;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Background Lautan */
+.ocean-bg {
+    min-height: 100vh;
+    background: linear-gradient(180deg, var(--ocean-blue) 0%, var(--deep-blue) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    border: 4px solid var(--sand);
+    z-index: 10;
+}
+
+header h1 {
+    color: var(--deep-blue);
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: #555;
+    font-size: 0.9rem;
+}
+
+/* Grid Menu Pembayaran */
+.payment-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 2rem 0;
+}
+
+.card {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s, background 0.2s;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    border-color: var(--coral);
+    background: #f0faff;
+}
+
+.logo { width: 80px; }
+.icon { font-size: 2rem; }
+
+.pay-btn {
+    background: var(--coral);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Animasi Gelembung */
+.bubble {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    bottom: -100px;
+    animation: rise 10s infinite ease-in;
+}
+
+.bubble:nth-child(1) { width: 40px; height: 40px; left: 10%; animation-duration: 8s; }
+.bubble:nth-child(2) { width: 20px; height: 20px; left: 20%; animation-duration: 5s; }
+.bubble:nth-child(3) { width: 50px; height: 50px; left: 80%; animation-duration: 12s; }
+
+@keyframes rise {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-1000px); opacity: 0; }
+}
+
+footer p {
+    font-size: 0.8rem;
+    color: var(--deep-blue);
+}
