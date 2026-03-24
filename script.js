@@ -1,6 +1,6 @@
 // --- BAGIAN EDIT DI SINI ---
 const NOMOR_BANK = "randuwe bank";
-const URL_GAMBAR_QRIS = "https://ibb.co.com/QvVfvxP0"; 
+const URL_GAMBAR_QRIS = "https://ibb.co.com/QvVfvxP0.jpg"; 
 // ---------------------------
 
 // Set nomor bank otomatis di menu
