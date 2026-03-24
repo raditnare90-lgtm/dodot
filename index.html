@@ -3,47 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laut Kontol</title>
+    <title>Oceanic Pay - Under the Sea</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="ocean-bg">
+
+    <div class="ocean">
+        <div class="wave"></div>
         <div class="bubble"></div>
         <div class="bubble"></div>
         <div class="bubble"></div>
+        <div class="fish">🐟</div>
+        <div class="fish" style="top: 20%; animation-delay: 2s;">🐠</div>
 
-        <div class="container">
-            <header>
-                <h1>🌊 Pembayaran Kilat Crot</h1>
-                <p>Selesaikan pembayaranmu dengan nyaman</p>
-            </header>
+        <div class="payment-box">
+            <div class="header">
+                <i class="fa-solid fa-shrimp fa-2xl"></i>
+                <h1>Oceanic Pay</h1>
+                <p>Pilih metode pembayaran favoritmu</p>
+            </div>
 
-            <div class="payment-grid">
-                <div class="card qris">
-                    <img src="https://ibb.co.com/QvVfvxP0" alt="QRIS" class="logo">
-                    <h3>QRIS</h3>
-                    <button class="pay-btn">Pilih</button>
-                </div>
-
-                <div class="card e-wallet">
-                    <div class="logo-row">
-                        <span>GoPay</span> | <span>OVO</span>
+            <div class="menu-list">
+                <div class="payment-item" onclick="selectPayment('QRIS')">
+                    <div class="icon-circle qris"><i class="fa-solid fa-qrcode"></i></div>
+                    <div class="details">
+                        <span>QRIS Fast Pay</span>
+                        <small>Scan & Bayar Instan</small>
                     </div>
-                    <h3>E-Wallet</h3>
-                    <button class="pay-btn">Pilih</button>
+                    <i class="fa-solid fa-chevron-right arrow"></i>
                 </div>
 
-                <div class="card bank">
-                    <div class="icon">🏦</div>
-                    <h3>Transfer Bank</h3>
-                    <button class="pay-btn">Pilih</button>
+                <div class="payment-item" onclick="selectPayment('E-Wallet')">
+                    <div class="icon-circle wallet"><i class="fa-solid fa-wallet"></i></div>
+                    <div class="details">
+                        <span>E-Wallet</span>
+                        <small>GoPay, OVO, Dana</small>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow"></i>
+                </div>
+
+                <div class="payment-item" onclick="selectPayment('Virtual Account')">
+                    <div class="icon-circle bank"><i class="fa-solid fa-building-columns"></i></div>
+                    <div class="details">
+                        <span>Virtual Account</span>
+                        <small>BCA, Mandiri, BNI</small>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow"></i>
                 </div>
             </div>
 
-            <footer>
-                <p>Keamanan Engga Terjamin 🐚 2026</p>
-            </footer>
+            <div class="footer-note">
+                <i class="fa-solid fa-shield-halved"></i> Aman & Terenkripsi
+            </div>
         </div>
     </div>
+
+    <script>
+        function selectPayment(method) {
+            alert("Metode " + method + " dipilih! Mengalihkan ke halaman pembayaran...");
+            // Di sini Anda bisa menambahkan logika redirect atau pop-up QR code
+        }
+    </script>
 </body>
 </html>
