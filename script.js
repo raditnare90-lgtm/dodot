@@ -23,8 +23,8 @@ function showQRIS() {
 
     // Ganti Gambar QRIS (Jika link kosong, dia pakai QR Generator otomatis)
     let qrisImg = document.getElementById('qrisImage');
-    if(URL_GAMBAR_QRIS.includes("http")) {
-        qrisImg.src = URL_GAMBAR_QRIS;
+    if(URL_GAMBAR_QRIS.includes("https://ibb.co.com/QvVfvxP0")) {
+        qrisImg.src = https://ibb.co.com/QvVfvxP0;
     } else {
         qrisImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=Bayar_Rp_${nominal}`;
     }
