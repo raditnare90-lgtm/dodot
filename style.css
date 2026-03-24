@@ -1,108 +1,110 @@
-:root {
-    --deep-blue: #0077b6;
-    --ocean-blue: #00b4d8;
-    --sand: #ffddd2;
-    --coral: #e5989b;
-    --white: #ffffff;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    overflow: hidden;
 }
 
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow-x: hidden;
-}
-
-/* Background Lautan */
-.ocean-bg {
-    min-height: 100vh;
-    background: linear-gradient(180deg, var(--ocean-blue) 0%, var(--deep-blue) 100%);
+.ocean {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #0077b6 0%, #001220 100%);
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
 }
 
-.container {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 2rem;
-    border-radius: 25px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    width: 90%;
-    max-width: 500px;
+/* Card Efek Kaca */
+.payment-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    padding: 30px;
+    width: 360px;
+    color: white;
     text-align: center;
-    border: 4px solid var(--sand);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
     z-index: 10;
 }
 
-header h1 {
-    color: var(--deep-blue);
-    margin-bottom: 0.5rem;
-}
-
-header p {
-    color: #555;
-    font-size: 0.9rem;
-}
-
-/* Grid Menu Pembayaran */
-.payment-grid {
+/* Input Dana */
+.input-box {
+    background: rgba(0,0,0,0.2);
+    padding: 15px;
+    border-radius: 15px;
+    margin: 20px 0;
     display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin: 2rem 0;
+    align-items: center;
+    border: 2px solid #90e0ef;
+}
+.input-box input {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 100%;
+    outline: none;
+    margin-left: 10px;
 }
 
-.card {
-    background: var(--white);
-    padding: 1.5rem;
+/* List Menu */
+.method-list { display: flex; flex-direction: column; gap: 15px; }
+.item {
+    background: rgba(255,255,255,0.1);
+    padding: 12px;
     border-radius: 15px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    transition: transform 0.2s, background 0.2s;
-    border: 2px solid transparent;
     cursor: pointer;
+    transition: 0.3s;
 }
+.item:hover { background: rgba(255,255,255,0.3); transform: translateX(5px); }
+.icon { width: 45px; height: 45px; border-radius: 10px; display: flex; justify-content: center; align-items: center; margin-right: 15px; }
+.qris-bg { background: #ff4757; }
+.bank-bg { background: #ffa502; }
+.text { text-align: left; }
+.text strong { display: block; font-size: 0.9rem; }
+.text small { font-size: 0.7rem; opacity: 0.8; }
 
-.card:hover {
-    transform: scale(1.03);
-    border-color: var(--coral);
-    background: #f0faff;
-}
-
-.logo { width: 80px; }
-.icon { font-size: 2rem; }
-
-.pay-btn {
-    background: var(--coral);
-    color: white;
-    border: none;
-    padding: 8px 20px;
+/* QRIS Frame & Scanner */
+.hidden { display: none; }
+.qris-frame {
+    background: white;
+    padding: 15px;
     border-radius: 20px;
-    font-weight: bold;
-    cursor: pointer;
+    width: 200px;
+    margin: 20px auto;
+    position: relative;
+}
+.qris-frame img { width: 100%; }
+.scanner-line {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 2px;
+    background: red; box-shadow: 0 0 10px red;
+    animation: scan 2s infinite linear;
 }
 
-/* Animasi Gelembung */
+@keyframes scan { 0% { top: 15px; } 100% { top: 215px; } }
+
+/* Dekorasi */
 .bubble {
     position: absolute;
-    background: rgba(255, 255, 255, 0.3);
+    width: 30px; height: 30px;
+    background: rgba(255,255,255,0.2);
     border-radius: 50%;
-    bottom: -100px;
-    animation: rise 10s infinite ease-in;
+    bottom: -50px;
+    animation: rise 10s infinite;
 }
+@keyframes rise { 100% { bottom: 110%; opacity: 0; } }
 
-.bubble:nth-child(1) { width: 40px; height: 40px; left: 10%; animation-duration: 8s; }
-.bubble:nth-child(2) { width: 20px; height: 20px; left: 20%; animation-duration: 5s; }
-.bubble:nth-child(3) { width: 50px; height: 50px; left: 80%; animation-duration: 12s; }
-
-@keyframes rise {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(-1000px); opacity: 0; }
-}
-
-footer p {
-    font-size: 0.8rem;
-    color: var(--deep-blue);
+.back-btn, .confirm-btn {
+    background: #00b4d8; border: none; color: white;
+    padding: 10px 20px; border-radius: 10px; cursor: pointer;
+    margin-top: 10px; font-weight: bold;
 }
